@@ -1,0 +1,145 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Barcode generation</title>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap" rel="stylesheet">
+  
+
+</head>
+
+<body>
+    <div class="rect" id="label">
+        <div style="width: 100%;">
+            <h1 class="m700" style="float:left; margin-left:5px; margin-top: 5px;">BR8</h1>
+            <h2 class="m700" style="float:right; margin-right:5px">Magazijnretour</h2>
+        </div>
+        <div style="width: 100%;">
+            <hr style="margin-top: 75px;">
+        </div>
+        <div style="margin-left: 10px; margin-top: 20px;">
+            <p class="order">Order:</p>
+            <p id="ordernr">210210210</p>
+            <br>
+            <br>
+            <p class="order">Johannes Klene</p>
+        </div>
+        <hr>
+        <div style="margin-left: 10px; margin-top: 20px;">
+            <p id="collo">Collo: 1/1</p>
+        </div>
+        <hr>
+        <br>
+        <svg class="barcode" background="#000000" jsbarcode-format="CODE128" jsbarcode-value="BR80000012345-1" jsbarcode-textmargin="0" jsbarcode-fontoptions="bolder">
+        </svg>
+        <!-- <table class="center">
+            <tr>
+                <td>dawdkj</td>
+            </tr>
+        </table> -->
+    </div>
+    
+
+    <script>
+        JsBarcode(".barcode").init();
+
+    
+    </script>
+
+  <!-- your content here... -->
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</body>
+
+<style>
+    @media print {
+        @page {
+          size: A6 portrait; /* landscape */
+          /* you can also specify margins here: */
+          margin: 5mm;
+          margin-right: 5mm;
+
+              }
+            }
+
+    
+    .rect {
+        width: 10.5cm;
+        height: 14.8cm;
+        border: 1px solid;
+        border-color: black;
+    }
+
+    hr {
+        border-top: 2px solid black;
+        max-width: 90%;
+        align-self: center;
+    }
+
+    h1.m700 {
+        font-family: 'MuseoModerno', bold;
+        font-size: 30px;
+    }
+
+    h2.m700 {
+        font-family: 'MuseoModerno', bold;
+        font-size: 20px;
+    }
+
+    .h3 {
+        margin-bottom: 0px;
+    }
+
+    td {
+        font-family: 'MuseoModerno', normal;
+        font-size: 18px;
+    }
+
+    .col {
+        float: left;
+        width: 33.3%;
+    }
+    .col2 {
+        float: right;
+        width: 33.3%;
+    }
+
+    .center {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .order {
+        font-size: 15px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bold;
+        margin-bottom: 0px;
+        margin-left: 2.5%;
+    }
+    #ordernr {
+        font-size: 24px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bolder;
+        margin-top: 0px;
+        margin-left: 2.5%;
+    }
+
+    #collo {
+        font-size: 40px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bolder;
+        margin-top: 0px;
+        margin-left: 2.5%;
+    }
+    
+    .barcode {
+        max-width: 80%;
+        align-self: center;
+        align-content: center;
+    }
+</style>
+</html>
