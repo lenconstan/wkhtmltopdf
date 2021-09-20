@@ -1,4 +1,5 @@
-from app import app, render_template, url_for, request
+from app import app, render_template, url_for, request, os
+# from app import os
 import pdfkit
 import pydf
 import io
@@ -7,9 +8,11 @@ import jinja2
 
 
 
+
 @app.route('/')
 @app.route('/index')
 def index():
+    print(os.environ.get('SECRET_KEY'))
     return "Hello, World!"
 
 @app.route('/pdf')
