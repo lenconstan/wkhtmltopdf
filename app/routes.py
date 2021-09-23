@@ -11,7 +11,7 @@ import jinja2
 @app.route('/')
 @app.route('/index')
 def index():
-    print(os.environ.get('SECRET_KEY'))
+    # print(os.environ.get('SECRET_KEY'))
     return "Hello, World!"
 
 @app.route('/pdf')
