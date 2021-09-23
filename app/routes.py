@@ -1,7 +1,6 @@
 from app import app, render_template, url_for, request, os
 # from app import os
 import pdfkit
-import pydf
 import io
 import base64
 import jinja2
