@@ -4,6 +4,12 @@ import pdfkit
 import io
 import base64
 import jinja2
+import os, sys, subprocess, platform
+
+os.environ['PATH'] += os.pathsep + os.path.dirname(sys.executable) 
+WKHTMLTOPDF_CMD = subprocess.Popen(['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], 
+stdout=subprocess.PIPE).communicate()[0].strip()
+pdfkit_config = pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
 
 
 
@@ -29,7 +35,7 @@ def pdf():
         'page-size': 'A6',
         'orientation': 'Portrait'
     }
-    pdf = pdfkit.from_string(outputText, False, options=options)
+    pdf = pdfkit.from_string(outputText, False, configuration=pdfkit_config, options=options)
     file = io.BytesIO(pdf)
     base64_pdf = base64.b64encode(file.getvalue())
 
